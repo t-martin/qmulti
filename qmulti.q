@@ -12,6 +12,7 @@ trimn:{ltrimn rtrimn x};
 .priv.ml.evaluater:{[h;x](::)~@[.priv.ml.checksyntax[;h];x;0b]};
 .priv.ml.initeval:{.priv.ml.evaluate:.priv.ml.evaluater x};
 .priv.ml.ismulti:{(2~count p)and`multi~first p:@[parse;x;`]};
+.priv.ml.initremote:{.priv.ml.safemode:1b;.priv.ml.initeval x}
 
 multi:{[]
   -1"[qmulti on]";
@@ -26,6 +27,7 @@ multi:{[]
       ignore:1b;
       ];
     if[input~"end"; finished:1b];
+    if[.priv.ml.safemode and input~"\\\\";ignore:1b];
     if[not[ignore] and not input~"end";
       query,:enlist input;
       if[.priv.ml.evaluate query;
@@ -39,4 +41,5 @@ multi:{[]
 
 //initlise multiline in local mode
 .priv.ml.initeval[0];
-.priv.ml.qmultiloaded:1b;    
+.priv.ml.qmultiloaded:1b;
+.priv.ml.safemode:0b;    
