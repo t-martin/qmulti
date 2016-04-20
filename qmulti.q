@@ -4,7 +4,7 @@
 
 .priv.ml.qmultiloaded:0b;
 
-k).priv.ml.checksyntax:{x:("#!"~2#*x)_x:-1!'x;.priv.ml.display'z'(@;y;)'"\n"/:'(&~^*:'x)_x@:&(#:'x)&~"/"=*:'x@:&~|':(b?-1)#b:+\-/x~\:/:+,"/\\";}[;"q";];
+k).priv.ml.checksyntax:{x:("#!"~2#*x)_x:-1!'x;.priv.ml.display'y'(@;.:;)'"\n"/:'(&~^*:'x)_x@:&(#:'x)&~"/"=*:'x@:&~|':(b?-1)#b:+\-/x~\:/:+,"/\\";};
 k)rtrimn:{$[~t&77h>t:@x;.z.s'x;"\n"=last x;|ltrimn@|x;x]};
 k)ltrimn:{$[~t&77h>t:@x;.z.s'x;"\n"=*x;(+/&\"\n"=x)_x;x]};
 trimn:{ltrimn rtrimn x};
