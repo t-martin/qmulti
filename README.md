@@ -26,8 +26,7 @@ then enter your code. type 'end' to exit multiline mode
 	120 100
 
 note that your code must respect the usual q rules about multi-line functions: each line after the first must be indented
-
-also note that code is evaluated as it is entered
+also note that when pasting into putty, a leading tab will be ignored which could case indentation errors. use spaces instead of tabs
 
 ## integration with qremote
 qmulti will work witih qremote (https://github.com/t-martin/qremote), provivided that qremote can find qmulti.q when it is run. 

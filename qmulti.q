@@ -3,13 +3,12 @@
 // type end to exit multi mode
 
 .priv.ml.qmultiloaded:0b;
-
-k).priv.ml.checksyntax:{x:("#!"~2#*x)_x:-1!'x;.priv.ml.display'y'(@;.:;)'"\n"/:'(&~^*:'x)_x@:&(#:'x)&~"/"=*:'x@:&~|':(b?-1)#b:+\-/x~\:/:+,"/\\";};
+k).priv.ml.checksyntax:{x:("#!"~2#*x)_x:-1!'x;.priv.ml.display'y'(@;.:;)'"\n"/:'(&~^*:'x)_x@:&(#:'x)&~"/"=*:'x@:&~|':(b?1)#b:+\-/x~\:/:+,"/\\";};
 k)rtrimn:{$[~t&77h>t:@x;.z.s'x;"\n"=last x;|ltrimn@|x;x]};
 k)ltrimn:{$[~t&77h>t:@x;.z.s'x;"\n"=*x;(+/&\"\n"=x)_x;x]};
 trimn:{ltrimn rtrimn x};
 .priv.ml.display:{if[not ""~r:trimn .Q.s x;-1 r]};
-.priv.ml.evaluater:{[h;x](::)~@[.priv.ml.checksyntax[;h];x;0b]};
+.priv.ml.evaluater:{[h;x] @[.priv.ml.checksyntax[;h];x;{-1"'",x}]};
 .priv.ml.initeval:{.priv.ml.evaluate:.priv.ml.evaluater x};
 .priv.ml.ismulti:{(2~count p)and`multi~first p:@[parse;x;`]};
 .priv.ml.initremote:{.priv.ml.safemode:1b;.priv.ml.initeval x}
@@ -26,14 +25,9 @@ multi:{[]
       -1"[qmulti is already on. ignoring]";
       ignore:1b;
       ];
-    if[input~"end"; finished:1b];
+    if[input~"end"; finished:1b; .priv.ml.evaluate query];
     if[.priv.ml.safemode and input~"\\\\";ignore:1b];
-    if[not[ignore] and not input~"end";
-      query,:enlist input;
-      if[.priv.ml.evaluate query;
-        query:enlist "";
-        ];
-      ];
+    if[not[ignore] and not input~"end";query,:enlist input];
     ignore:0b;
     ];
   -1"[qmulti off]";
