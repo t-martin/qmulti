@@ -1,19 +1,19 @@
 # qmulti
-## about
+## About
 qmulti.q is a simple q script to allow multi-line code to be entered into a sntandard kdb+ console
 
-## usage
-load the script using \l
+## Usage
+Load the script using `\l`
 
 	q)\l qmulti.q
 
-to enter multi-line mode, run multi[]
+To enter multi-line mode, run `multi[]`
 
 	q)multi[]
 	[qmulti on]
 	>> 
 
-then enter your code. type 'end' to exit multiline mode
+Then enter your code. Type `end` to evaluate your code and exit multiline mode
 
 	>> func:{[x;y]
 	>>   x+:20;
@@ -25,10 +25,11 @@ then enter your code. type 'end' to exit multiline mode
 	q)func[100;50]
 	120 100
 
-note that your code must respect the usual q rules about multi-line functions: each line after the first must be indented
-also note that when pasting into putty, a leading tab will be ignored which could case indentation errors. use spaces instead of tabs
+Note that your code must respect the usual q rules about multi-line functions: each line after the first must be indented.
 
-## integration with qremote
-qmulti will work witih qremote (https://github.com/t-martin/qremote), provivided that qremote can find qmulti.q when it is run. 
+Also note that when pasting into putty, a leading tab will be ignored which could case indentation errors. Use spaces instead of tabs.
 
-qmulti.q should be stored in QHOME, QMULTI_HOME or QREMOTE_HOME in order to work with qremote
+## Integration with qremote
+qmulti will work witih qremote (https://github.com/t-martin/qremote), provided that qremote can find qmulti.q when it is run. 
+
+qmulti.q should be stored in QHOME, QMULTI_HOME or QREMOTE_HOME in order to work with qremote.
