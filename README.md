@@ -15,7 +15,7 @@ To enter multi-line mode, run `multi[]`
 
 Then enter your code. Type `end` to evaluate your code and exit multiline mode
 
-	>> func:{[x;y]
+	>> func:{[x;y] 
 	>>   x+:20;
 	>>   y+:50;
 	>>   x,y
