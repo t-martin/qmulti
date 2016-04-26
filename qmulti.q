@@ -8,10 +8,11 @@ k)rtrimn:{$[~t&77h>t:@x;.z.s'x;"\n"=last x;|ltrimn@|x;x]};
 k)ltrimn:{$[~t&77h>t:@x;.z.s'x;"\n"=*x;(+/&\"\n"=x)_x;x]};
 trimn:{ltrimn rtrimn x};
 .priv.ml.display:{if[not ""~r:trimn .Q.s x;-1 r]};
-.priv.ml.evaluater:{[h;x] @[.priv.ml.checksyntax[;h];x;{-1"'",x}]};
+.priv.ml.evaluater:{[h;x] s:.z.t;@[.priv.ml.checksyntax[;h];x;{-1"'",x}];`int$.z.t-s};
 .priv.ml.initeval:{.priv.ml.evaluate:.priv.ml.evaluater x};
 .priv.ml.ismulti:{(2~count p)and`multi~first p:@[parse;x;`]};
-.priv.ml.initremote:{.priv.ml.safemode:1b;.priv.ml.initeval x}
+.priv.ml.initremote:{.priv.ml.safemode:1b;.priv.ml.initeval x};
+.priv.ml.end:{any x~/:("end";enlist "e")};
 
 multi:{[]
   -1"[qmulti on]";
@@ -25,13 +26,13 @@ multi:{[]
       -1"[qmulti is already on. ignoring]";
       ignore:1b;
       ];
-    if[input~"end"; finished:1b; .priv.ml.evaluate query];
+    if[.priv.ml.end input; finished:1b; d:.priv.ml.evaluate query];
     if[.priv.ml.safemode and input~"\\\\";ignore:1b];
     if[not[ignore] and not input~"end";query,:enlist input];
     ignore:0b;
     ];
   -1"[qmulti off]";
-  };
+  d};
 
 //initlise multiline in local mode
 .priv.ml.initeval[0];
