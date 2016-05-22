@@ -1,6 +1,6 @@
 # qmulti
 ## About
-qmulti.q is a simple q script to allow multi-line code to be entered into a sntandard kdb+ console
+qmulti.q is a simple q script to allow multi-line code to be entered into a standard kdb+ console
 
 ## Usage
 Load the script using `\l`
