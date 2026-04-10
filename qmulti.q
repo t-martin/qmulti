@@ -12,7 +12,7 @@ trimn:{ltrimn rtrimn x};
 .priv.ml.initeval:{.priv.ml.evaluate:.priv.ml.evaluater x};
 .priv.ml.ismulti:{(2~count p)and`multi~first p:@[parse;x;`]};
 .priv.ml.initremote:{.priv.ml.safemode:1b;.priv.ml.initeval x};
-.priv.ml.end:{any x~/:("end";enlist "e")};
+.priv.ml.end:{any x~/:("\\done";"\\end";"\\e")};
 
 multi:{[]
   -1"[qmulti on]";
